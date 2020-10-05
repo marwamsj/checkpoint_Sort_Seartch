@@ -1,0 +1,30 @@
+PROCEDURE insertion_Sort(VAR tab: ARRAY_OF INTEGER[])
+VAR
+    i,j,cle:INTEGER;
+BEGIN
+     FOR i FROM 1 TO tab.length-1 DO
+      cle := tab[i];
+      j := i-1;
+      WHILE (j>= 0 and tab[j]> cle) DO
+          tab[j+1] := tab[j];
+          j= j-1;
+      END_WHILE
+        tab[j+1]:= cle;
+     END_FOR
+    WRITE(tab)
+END
+
+ALGORITHM checkpt4
+VAR
+    arr : ARRAY_OF INTEGER[];
+    n,i: INTEGER;
+BEGIN
+    WRITE("Dnner le longueur du tableau, STP")
+    READ(n)
+    arr.length :=n;
+    FOR i FROM 0 TO n-1  DO
+        READ (arr[i])
+    END_FOR
+    insertion_Sort(arr);
+    WRITE(arr)
+END
